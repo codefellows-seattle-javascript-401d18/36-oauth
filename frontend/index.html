@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Login with Google</title>
+ </head>
+ <body>
+   <h1>Google</h1>
+   <script>
+     let a = document.createElement('a');
+     let authUrl= 'https://accounts.google.com/o/oauth2/v2/auth';
+     let clientId= 'client_id=191202740804-3p8qvldhgkqntm68n9uu8qr4r48100qf.apps.googleusercontent.com';
+     let repsonseType= 'response_type=code';
+     let scope= 'scope=openid%20profile%20email';
+     let prompt= 'prompt=consent';
+     let redirectUri= 'redirect_uri=http://localhost:3000/oauth/google/code';
+     let fullUrl= `${authUrl}?${clientId}&${repsonseType}&${scope}&${prompt}&${redirectUri}`;
+     a.setAttribute('href', fullUrl);
+     a.textContent= 'Sign in with google';
+     document.body.appendChild(a);
+   </script>
+ </body>
+</html>
+
