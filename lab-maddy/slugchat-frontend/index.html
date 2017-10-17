@@ -16,7 +16,7 @@
      let responseType= 'response_type=code';
      let scope= 'scope=openid%20profile%20email';
      let prompt= 'prompt=consent';
-     let redirectUri= 'redirect_uri=http://localhost:8080/oauth/google/code';
+     let redirectUri= 'redirect_uri=http://localhost:3000/oauth/google/code';
      let fullUrl= `${authUrl}?${clientId}&${responseType}&${scope}&${prompt}&${redirectUri}`;
      a.setAttribute('href', fullUrl);
      a.textContent= 'Click here';
