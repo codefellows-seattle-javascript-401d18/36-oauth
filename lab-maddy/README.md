@@ -90,3 +90,6 @@ client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.c
   * `/landing` - display a "login with google" anchor
   * this google anchor should work as described above in the "Feature Tasks" section
   * after the auth handshake is completed, the user should be redirected to another part of the app (since a token is now saved to their browser cookies)
+
+#### Collaborators:
+Michelle, Said, Isaac, Gavin.
