@@ -13,11 +13,11 @@
      let a = document.createElement('a');
      let authUrl= 'https://accounts.google.com/o/oauth2/v2/auth';
      let clientId= 'client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com';
-     let repsonseType= 'response_type=code';
+     let responseType= 'response_type=code';
      let scope= 'scope=openid%20profile%20email';
      let prompt= 'prompt=consent';
      let redirectUri= 'redirect_uri=http://localhost:8080/oauth/google/code';
-     let fullUrl= `${authUrl}?${clientId}&${repsonseType}&${scope}&${prompt}&${redirectUri}`;
+     let fullUrl= `${authUrl}?${clientId}&${responseType}&${scope}&${prompt}&${redirectUri}`;
      a.setAttribute('href', fullUrl);
      a.textContent= 'Click here';
      document.body.appendChild(a);
