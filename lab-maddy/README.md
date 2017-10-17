@@ -1,13 +1,20 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 36: OAuth
 ======
 
-## Submission Instructions
-* fork this repository & create a new branch for your work
-* write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* push to your repository
-* submit a pull request to this repository
-* submit a link to your PR in canvas
-* write a question and observation on canvas
+#### Items needed for this lab:
+
+1. From: https://developers.google.com/identity/protocols/OAuth2UserAgent
+
+```
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&
+ include_granted_scopes=true&
+ state=state_parameter_passthrough_value&
+ redirect_uri=http%3A%2F%2Foauth2.example.com%2Fcallback&
+ response_type=token&
+ client_id=client_id
+After you create the request U
+```
 
 ## Learning Objectives
 * students will be able to add Google OAuth to a MERN stack application
