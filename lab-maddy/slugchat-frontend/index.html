@@ -7,11 +7,21 @@
 </head>
 <body>
   <h2>Google Sign in!</h2>
-  <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=code&redirect_uri=https://localhost:8080/oauth/google/code&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com">Click here</a>
+
+  <script>
+     let a = document.createElement('a');
+     let authUrl= 'https://accounts.google.com/o/oauth2/v2/auth';
+     let clientId= 'client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com';
+     let repsonseType= 'response_type=code';
+     let scope= 'scope=openid%20profile%20email';
+     let prompt= 'prompt=consent';
+     let redirectUri= 'redirect_uri=https://localhost:8080/oauth/google/code';
+     let fullUrl= `${authUrl}?${clientId}&${repsonseType}&${scope}&${prompt}&${redirectUri}`;
+     a.setAttribute('href', fullUrl);
+     a.textContent= 'Click here';
+     document.body.appendChild(a);
+   </script>
 
 </body>
 
 </html>
-
-
-<!-- https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=token&redirect_uri=http://localhost:8080/oauth/google/code&login_hint=jsmith@example.com&openid.realm=example.com&hd=example.com&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com -->
