@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-import { Router } from 'express'
-import User from '../model/user.js'
-import bodyParser from 'body-parser'
-import basicAuth from '../middleware/basic-auth.js'
+import { Router } from 'express';
+import User from '../model/user.js';
+import bodyParser from 'body-parser';
+import basicAuth from '../middleware/basic-auth.js';
 import superagent from 'superagent';
 
 export default new Router()
@@ -18,12 +18,12 @@ export default new Router()
           grant_type: 'authorization_code',
           client_id: process.env.GOOGLE_CLIENT_ID,
           client_secret: process.env.GOOGLE_CLIENT_SECRET,
-          redirect_uri: `${process.env.API_URL}/oauth/google/code`
+          redirect_uri: `${process.env.API_URL}/oauth/google/code`,
         })
         .then(response => {
           console.log('POST: oauth2/v4/token', response.body);
           return superagent.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect')
-            .set('Authorization', `Bearer ${response.body.access_token}`)
+            .set('Authorization', `Bearer ${response.body.access_token}`);
         })
         .then(response => {
           console.log('GET: /people/me/openIdConnect', response.body);
@@ -39,32 +39,32 @@ export default new Router()
         .catch((error) => {
           console.error(error);
           res.redirect(process.env.CLIENT_URL);
-        })
+        });
     }
   })
   .post('/signup', bodyParser.json(), (req, res, next) => {
     new User.createFromSignup(req.body)
       .then(user => user.tokenCreate())
       .then(token => {
-        res.cookie('X-Slugchat-Token', token)
-        res.send(token)
+        res.cookie('X-Slugchat-Token', token);
+        res.send(token);
       })
-      .catch(next)
+      .catch(next);
   })
   .get('/usernames/:username', (req, res, next) => {
     User.findOne({ username: username })
       .then(user => {
         if(!user)
-          return res.sendStatus(409)
-        return res.sendStatus(200)
+          return res.sendStatus(409);
+        return res.sendStatus(200);
       })
-      .catch(next)
+      .catch(next);
   })
   .get('/login', basicAuth, (req, res, next) => {
     req.user.tokenCreate()
       .then((token) => {
-        res.cookie('X-Slugchat-Token', token)
-        res.send(token)
+        res.cookie('X-Slugchat-Token', token);
+        res.send(token);
       })
-      .catch(next)
-  })
+      .catch(next);
+  });
