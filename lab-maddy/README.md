@@ -16,6 +16,53 @@ https://accounts.google.com/o/oauth2/v2/auth?
 After you create the request U
 ```
 
+2. In one terminal window, navigate to the backend, start node by typing:
+```
+nodemon
+```
+Should see:
+```
+^C17:37 ~/codefellows/401/week9/36-oauth/lab-maddy/slugchat-backend [maddy-mon !?] nodemon
+[nodemon] 1.12.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
+__MONGO_CONNECTED__ mongodb://localhost/slugchat-dev
+__SERVER_UP__ 3000
+```
+3. In a second terminal window, navigate to the backend, start mongodb by typing:
+```
+mongod --dbpath ./db
+```
+
+
+
+### NOTES from index.html:
+
+<!-- // Parameters to pass to OAuth 2.0 endpoint. I WANT TO KNOW IF THIS WOULD ALSO WORK
+  var params = {'client_id': 'YOUR_CLIENT_ID',
+                'redirect_uri': 'YOUR_REDIRECT_URI',
+                'response_type': 'token',
+                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+                'include_granted_scopes': 'true',
+                'state': 'pass-through value'}); -->
+
+
+  <!-- Working
+  <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=code&redirect_uri=https://localhost:8080/oauth/google/code&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com">Click here</a> -->
+
+<!-- working version again, but easier to read
+https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&
+include_granted_scopes=true&
+state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&
+response_type=code&
+redirect_uri=https://localhost:8080/oauth/google/code&
+client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com -->
+
+
+<!-- original with extra variables https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=token&redirect_uri=http://localhost:8080/oauth/google/code&login_hint=jsmith@example.com&openid.realm=example.com&hd=example.com&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com -->
+
+
 ## Learning Objectives
 * students will be able to add Google OAuth to a MERN stack application
 
