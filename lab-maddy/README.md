@@ -16,6 +16,25 @@ https://accounts.google.com/o/oauth2/v2/auth?
 After you create the request U
 ```
 
+2. In one terminal window, navigate to the backend, start node by typing:
+```
+nodemon
+```
+Should see:
+```
+^C17:37 ~/codefellows/401/week9/36-oauth/lab-maddy/slugchat-backend [maddy-mon !?] nodemon
+[nodemon] 1.12.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
+__MONGO_CONNECTED__ mongodb://localhost/slugchat-dev
+__SERVER_UP__ 3000
+```
+3. In a second terminal window, navigate to the backend, start mongodb by typing:
+```
+mongod --dbpath ./db
+```
+
 ## Learning Objectives
 * students will be able to add Google OAuth to a MERN stack application
 
