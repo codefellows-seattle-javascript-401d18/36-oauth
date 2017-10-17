@@ -1,7 +1,20 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 36: OAuth
 ======
+#### Project description:
+
+This is practice using Google OAuth by creating a simple index.html front end that includes an href anchor tag with all the attributes necessary to produce browser cookies.
 
 #### Items needed for this lab:
+
+#### Terminal scripts:
+
+- Backend:
+Two windows, one for nodemon and one for mongodb.
+```
+mongod --dbpath ./db
+```
+- Frontend:
+
 
 1. From: https://developers.google.com/identity/protocols/OAuth2UserAgent
 
