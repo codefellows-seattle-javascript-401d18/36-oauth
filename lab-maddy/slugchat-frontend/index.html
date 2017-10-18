@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>SlugChat</title>
+</head>
+<body>
+  <h2>Google Sign in!</h2>
+
+  <script>
+     let a = document.createElement('a');
+     let authUrl= 'https://accounts.google.com/o/oauth2/v2/auth';
+     let clientId= 'client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com';
+     let responseType= 'response_type=code';
+     let scope= 'scope=openid%20profile%20email';
+     let prompt= 'prompt=consent';
+     let redirectUri= 'redirect_uri=http://localhost:3000/oauth/google/code';
+     let fullUrl= `${authUrl}?${clientId}&${responseType}&${scope}&${prompt}&${redirectUri}`;
+     a.setAttribute('href', fullUrl);
+     a.textContent= 'Click here';
+     document.body.appendChild(a);
+   </script>
+
+</body>
+
+</html>
