@@ -4,7 +4,12 @@
 
 This is practice using Google OAuth by creating a simple index.html front end that includes an href anchor tag with all the attributes necessary to produce browser cookies.
 
-#### Items needed for this lab:
+#### Checklist for this lab:
+
+1. Enable the google plus API for this project in the dashboard, big blue button.
+2. After consent I am redirected back to my frontpage app
+3. I am able to call document.cookie and I get a slugchat cookie
+4. I am able to search my mongo shell database for me as a user object
 
 #### Terminal scripts:
 
@@ -14,7 +19,7 @@ Two windows, one for nodemon and one for mongodb.
 mongod --dbpath ./db
 ```
 - Frontend:
-Right click- 'Open in Browser'
+Right click- live-server index.html
 
 1. From: https://developers.google.com/identity/protocols/OAuth2UserAgent
 
@@ -46,34 +51,26 @@ __SERVER_UP__ 3000
 3. In a second terminal window, navigate to the backend, start mongodb by typing:
 ```
 mongod --dbpath ./db
+
 ```
 
+4. After all goals have been met, double check your work. In the mongo shell I am able to see that I have a user in my database with the following scripts:
+```
+> show dbs
+admin         0.000GB
+local         0.000GB
+slugchat-dev  0.000GB
+> use slugchat-dev
+switched to db slugchat-dev
+> show collections
+users
+> show users
+> db.users.find()
+> show users
+> db.users.find()
+{ "_id" : ObjectId("59e6537c1cd1ce33c34b4b8c"), "username" : "Madeline_Stevens", "email" : "stevensm1987@gmail.com", "tokenSeed" : "qZT4HUJ9OsDWs28mosKG/aG/e5zF2aEqmK6Btnx9DBc=", "__v" : 0 }
+```
 
-
-### NOTES from index.html:
-
-<!-- // Parameters to pass to OAuth 2.0 endpoint. I WANT TO KNOW IF THIS WOULD ALSO WORK
-  var params = {'client_id': 'YOUR_CLIENT_ID',
-                'redirect_uri': 'YOUR_REDIRECT_URI',
-                'response_type': 'token',
-                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-                'include_granted_scopes': 'true',
-                'state': 'pass-through value'}); -->
-
-
-  <!-- Working
-  <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=code&redirect_uri=https://localhost:8080/oauth/google/code&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com">Click here</a> -->
-
-<!-- working version again, but easier to read
-https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&
-include_granted_scopes=true&
-state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&
-response_type=code&
-redirect_uri=https://localhost:8080/oauth/google/code&
-client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com -->
-
-
-<!-- original with extra variables https://accounts.google.com/o/oauth2/v2/auth?scope=openid%20email&include_granted_scopes=true&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&response_type=token&redirect_uri=http://localhost:8080/oauth/google/code&login_hint=jsmith@example.com&openid.realm=example.com&hd=example.com&client_id=437188554571-55s638acqaou66thdltb2ju9a0j40eu3.apps.googleusercontent.com -->
 
 
 ## Learning Objectives
